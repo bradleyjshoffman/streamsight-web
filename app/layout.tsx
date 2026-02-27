@@ -18,6 +18,9 @@ export const metadata: Metadata = {
   title: "Streamsight | Coming Soon",
   description:
     "Streamsight is launching soon. Interactive flow visualization software for faster operational decisions.",
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title: "Streamsight | Coming Soon",
     description:
