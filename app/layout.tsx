@@ -27,6 +27,21 @@ export const metadata: Metadata = {
       "Streamsight is launching soon. Interactive flow visualization software for faster operational decisions.",
     type: "website",
     url: "https://streamsight.co",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "Streamsight coming soon preview",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Streamsight | Coming Soon",
+    description:
+      "Interactive flow visualization software for faster operational decisions.",
+    images: ["/opengraph-image"],
   },
 };
 
