@@ -1,26 +1,152 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg: #080d14;
+  --bg-card: #0f1824cf;
+  --text: #e8f0ff;
+  --muted: #9fb2cc;
+  --accent: #22d3ee;
+  --accent-dark: #0891b2;
+  --line: #20334b;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  font-family: var(--font-sans), "Segoe UI", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 10% 10%, #1d4ed866 0, transparent 34%),
+    radial-gradient(circle at 90% 85%, #0891b266 0, transparent 30%),
+    linear-gradient(140deg, #05080e 0%, #0a1321 52%, #0b1a2a 100%);
+  min-height: 100vh;
+}
+
+.page-shell {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.ambient-shape {
+  position: absolute;
+  width: 26rem;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  filter: blur(65px);
+  opacity: 0.38;
+  pointer-events: none;
+}
+
+.shape-one {
+  top: -8rem;
+  right: -8rem;
+  background: #0ea5e9;
+  animation: drift-one 9s ease-in-out infinite alternate;
+}
+
+.shape-two {
+  bottom: -10rem;
+  left: -8rem;
+  background: #22d3ee;
+  animation: drift-two 12s ease-in-out infinite alternate;
+}
+
+.hero-card {
+  width: min(760px, 100%);
+  position: relative;
+  border: 1px solid var(--line);
+  background: var(--bg-card);
+  backdrop-filter: blur(8px);
+  border-radius: 28px;
+  padding: clamp(1.6rem, 4.5vw, 3rem);
+  box-shadow:
+    0 20px 55px #020617b3,
+    0 1px 0 #60a5fa2e inset;
+  animation: rise 800ms cubic-bezier(0.2, 0.8, 0.3, 1) both;
+}
+
+.eyebrow {
+  margin: 0;
+  letter-spacing: 0.18em;
+  font-size: 1rem;
+  font-weight: 650;
+  color: #67e8f9;
+}
+
+h1 {
+  margin: 0.7rem 0 0;
+  font-family: var(--font-display), "Segoe UI", sans-serif;
+  font-size: clamp(2rem, 8vw, 4.8rem);
+  font-weight: 700;
+  line-height: 0.92;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+}
+
+.lead {
+  margin: 1.1rem 0 0;
+  max-width: 56ch;
+  color: var(--muted);
+  font-size: clamp(1rem, 2.8vw, 1.2rem);
+  line-height: 1.6;
+}
+
+.launch-note {
+  margin: 0.6rem 0 0;
+  color: #8dd3e4;
+  font-size: 0.92rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.pill-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-top: 1.2rem;
+}
+
+.pill-row span {
+  border: 1px solid #334155;
+  background: #0b1220cc;
+  border-radius: 999px;
+  padding: 0.38rem 0.72rem;
+  font-size: 0.83rem;
+  color: #cbd5e1;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes drift-one {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-24px, 24px, 0);
+  }
+}
+
+@keyframes drift-two {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(20px, -16px, 0);
+  }
 }
