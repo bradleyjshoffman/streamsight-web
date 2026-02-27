@@ -14,24 +14,39 @@
   box-sizing: border-box;
 }
 
+html,
 body {
+  height: 100%;
   margin: 0;
-  font-family: var(--font-sans), "Segoe UI", sans-serif;
-  color: var(--text);
+  overflow: hidden;
+  overscroll-behavior: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+html {
   background:
     radial-gradient(circle at 10% 10%, #1d4ed866 0, transparent 34%),
     radial-gradient(circle at 90% 85%, #0891b266 0, transparent 30%),
     linear-gradient(140deg, #05080e 0%, #0a1321 52%, #0b1a2a 100%);
-  min-height: 100vh;
+}
+
+body {
+  font-family: var(--font-sans), "Segoe UI", sans-serif;
+  color: var(--text);
+  background: transparent;
+  min-height: 100%;
 }
 
 .page-shell {
-  min-height: 100svh;
-  min-height: 100dvh;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: clamp(0.75rem, 3vw, 2rem);
+  padding:
+    max(clamp(0.75rem, 3vw, 2rem), env(safe-area-inset-top))
+    max(clamp(0.75rem, 3vw, 2rem), env(safe-area-inset-right))
+    max(clamp(0.75rem, 3vw, 2rem), env(safe-area-inset-bottom))
+    max(clamp(0.75rem, 3vw, 2rem), env(safe-area-inset-left));
   position: relative;
   overflow: hidden;
 }
@@ -62,7 +77,7 @@ body {
 
 .hero-card {
   width: min(760px, 100%);
-  max-height: calc(100dvh - clamp(1.5rem, 6vw, 4rem));
+  max-height: calc(100% - clamp(1.5rem, 6vw, 4rem));
   position: relative;
   border: 1px solid var(--line);
   background: var(--bg-card);
