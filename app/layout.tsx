@@ -29,9 +29,10 @@ export const metadata: Metadata = {
     url: "https://streamsight.co",
     images: [
       {
-        url: "/opengraph-image",
+        url: "https://streamsight.co/opengraph-image?v=1",
         width: 1200,
         height: 630,
+        type: "image/png",
         alt: "Streamsight coming soon preview",
       },
     ],
@@ -41,7 +42,7 @@ export const metadata: Metadata = {
     title: "Streamsight | Coming Soon",
     description:
       "Interactive flow visualization software for faster operational decisions.",
-    images: ["/opengraph-image"],
+    images: ["https://streamsight.co/opengraph-image?v=1"],
   },
 };
 
